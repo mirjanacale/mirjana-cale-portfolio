@@ -1,26 +1,81 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+/* ── Material Symbols Outlined variable font ── */
+.material-symbols-outlined {
+  font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+  font-family: 'Material Symbols Outlined';
+  font-style: normal;
+  font-size: 24px;
+  line-height: 1;
+  letter-spacing: normal;
+  text-transform: none;
+  display: inline-block;
+  white-space: nowrap;
+  direction: ltr;
+  -webkit-font-smoothing: antialiased;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+/* ── Tailwind v4 Theme ── */
+@theme {
+  /* Design system colors */
+  --color-background:               #0E1511;
+  --color-surface:                  #0E1511;
+  --color-surface-dim:              #0E1511;
+  --color-surface-container-lowest: #09100C;
+  --color-surface-container-low:    #161D19;
+  --color-surface-container:        #1A211D;
+  --color-surface-container-high:   #242C27;
+  --color-surface-container-highest:#2F3632;
+  --color-surface-bright:           #343B36;
+  --color-primary:                  #4EDEA3;
+  --color-primary-container:        #10B981;
+  --color-on-primary:               #003824;
+  --color-on-primary-container:     #00422B;
+  --color-on-surface:               #DDE4DD;
+  --color-on-surface-variant:       #BBCABF;
+  --color-on-background:            #DDE4DD;
+  --color-outline:                  #86948A;
+  --color-outline-variant:          #3C4A42;
+
+  /* Fonts — CSS vars injected by next/font are --font-sg / --font-in */
+  --font-space-grotesk: var(--font-sg), 'Space Grotesk', sans-serif;
+  --font-inter:         var(--font-in), 'Inter', sans-serif;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+/* ── Base ── */
+html {
+  scroll-behavior: smooth;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-inter);
+}
+
+::selection {
+  background-color: rgba(78, 222, 163, 0.25);
+}
+
+/* ── Dot-grid hero background ── */
+.grid-pattern {
+  background-image: radial-gradient(circle at 2px 2px, #26262A 1px, transparent 0);
+  background-size: 40px 40px;
+}
+
+/* ── Skill-chip hover glow ── */
+@keyframes subtle-glow {
+  0%, 100% { box-shadow: 0 0 5px rgba(78, 222, 163, 0.1); }
+  50%       { box-shadow: 0 0 15px rgba(78, 222, 163, 0.3); }
+}
+
+.glow-tag:hover {
+  animation: subtle-glow 2s infinite ease-in-out;
+  border-color: rgba(78, 222, 163, 0.5) !important;
+  background-color: rgba(78, 222, 163, 0.05) !important;
+  color: #4EDEA3 !important;
+}
+
+/* Honor reduced-motion preference */
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .glow-tag:hover { animation: none; }
 }
