@@ -1,0 +1,672 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>MIRJANA_CALE | Full-Stack Software Developer</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Space+Grotesk:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "secondary-fixed-dim": "#adc6ff",
+                        "secondary-fixed": "#d8e2ff",
+                        "tertiary-fixed-dim": "#ffb3af",
+                        "on-tertiary-fixed-variant": "#842225",
+                        "on-primary-fixed-variant": "#005236",
+                        "surface": "#0e1511",
+                        "primary-fixed": "#6ffbbe",
+                        "secondary-container": "#0566d9",
+                        "on-error-container": "#ffdad6",
+                        "on-primary": "#003824",
+                        "on-primary-fixed": "#002113",
+                        "on-secondary": "#002e6a",
+                        "on-tertiary-container": "#711419",
+                        "tertiary": "#ffb3af",
+                        "background": "#0e1511",
+                        "on-secondary-container": "#e6ecff",
+                        "tertiary-fixed": "#ffdad7",
+                        "surface-dim": "#0e1511",
+                        "primary-fixed-dim": "#4edea3",
+                        "surface-bright": "#343b36",
+                        "on-secondary-fixed": "#001a42",
+                        "outline-variant": "#3c4a42",
+                        "inverse-primary": "#006c49",
+                        "on-surface-variant": "#bbcabf",
+                        "surface-tint": "#4edea3",
+                        "inverse-on-surface": "#2b322d",
+                        "primary-container": "#10b981",
+                        "surface-container-highest": "#2f3632",
+                        "on-surface": "#dde4dd",
+                        "on-tertiary-fixed": "#410005",
+                        "outline": "#86948a",
+                        "surface-container-high": "#242c27",
+                        "surface-container": "#1a211d",
+                        "secondary": "#adc6ff",
+                        "inverse-surface": "#dde4dd",
+                        "on-tertiary": "#650911",
+                        "on-secondary-fixed-variant": "#004395",
+                        "surface-container-low": "#161d19",
+                        "surface-variant": "#2f3632",
+                        "on-background": "#dde4dd",
+                        "primary": "#4edea3",
+                        "surface-container-lowest": "#09100c",
+                        "error-container": "#93000a",
+                        "on-error": "#690005",
+                        "tertiary-container": "#fc7c78",
+                        "error": "#ffb4ab",
+                        "on-primary-container": "#00422b"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "fontFamily": {
+                        "mono-label": ["Space Grotesk"],
+                        "headline-md": ["Space Grotesk"],
+                        "headline-xl": ["Space Grotesk"],
+                        "body-lg": ["Inter"],
+                        "body-md": ["Inter"],
+                        "code-snippet": ["Space Grotesk"]
+                    },
+                    "fontSize": {
+                        "mono-label": ["14px", {"lineHeight": "1.4", "letterSpacing": "0.05em", "fontWeight": "500"}],
+                        "headline-md": ["24px", {"lineHeight": "1.2", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                        "headline-xl": ["48px", {"lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                        "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                        "body-md": ["16px", {"lineHeight": "1.5", "fontWeight": "400"}],
+                        "code-snippet": ["14px", {"lineHeight": "1.5", "fontWeight": "400"}]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .grid-pattern {
+            background-image: radial-gradient(circle at 2px 2px, #26262A 1px, transparent 0);
+            background-size: 40px 40px;
+        }
+        @keyframes subtle-glow {
+            0%, 100% { box-shadow: 0 0 5px rgba(78, 222, 163, 0.1); }
+            50% { box-shadow: 0 0 15px rgba(78, 222, 163, 0.3); }
+        }
+        .glow-tag:hover {
+            animation: subtle-glow 2s infinite ease-in-out;
+            border-color: rgba(78, 222, 163, 0.5);
+            background-color: rgba(78, 222, 163, 0.05);
+            color: #4edea3;
+        }
+
+        /* ── Scroll reveal — fade + slide-up ──────────────────────── */
+        .reveal,
+        .reveal-left,
+        .reveal-right {
+            opacity: 0;
+            transition: opacity 0.65s cubic-bezier(0.16, 1, 0.3, 1),
+                        transform 0.65s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .reveal       { transform: translateY(28px); }
+        .reveal-left  { transform: translateX(-52px); }
+        .reveal-right { transform: translateX(52px); }
+        .reveal.visible,
+        .reveal-left.visible,
+        .reveal-right.visible {
+            opacity: 1;
+            transform: translate(0, 0);
+        }
+
+        /* ── Stagger cards ─────────────────────────────────────────── */
+        .stagger-item {
+            opacity: 0;
+            transform: translateY(24px);
+            transition: opacity 0.55s cubic-bezier(0.16, 1, 0.3, 1),
+                        transform 0.55s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .stagger-item.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* ── Typewriter blinking cursor on hero H1 ─────────────────── */
+        #hero-headline.typing::after {
+            content: '|';
+            animation: cur-blink 0.6s step-end infinite;
+            color: #4edea3;
+            font-style: normal;
+            font-weight: 400;
+        }
+        @keyframes cur-blink {
+            0%, 100% { opacity: 1; }
+            50%      { opacity: 0; }
+        }
+
+        /* ── Respect prefers-reduced-motion ────────────────────────── */
+        @media (prefers-reduced-motion: reduce) {
+            .reveal, .reveal-left, .reveal-right, .stagger-item {
+                opacity: 1 !important;
+                transform: none !important;
+                transition: none !important;
+            }
+            .glow-tag:hover { animation: none; }
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background font-body-md selection:bg-primary/30">
+<!-- TopAppBar -->
+<header class="fixed top-0 left-0 right-0 z-50 flex justify-between items-center px-8 h-16 max-w-full bg-zinc-950/80 backdrop-blur-md border-b border-zinc-800">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-emerald-500" data-icon="terminal">terminal</span>
+<span class="text-lg font-bold tracking-tighter text-white font-headline-md uppercase">MIRJANA_CALE</span>
+</div>
+<nav class="hidden md:flex items-center gap-8">
+<a class="font-mono-label text-mono-label text-emerald-500 border-b-2 border-emerald-500 pb-1" href="#projects">PROJECTS</a>
+<a class="font-mono-label text-mono-label text-zinc-400 hover:text-zinc-100 transition-all" href="#skills">STACK</a>
+<a class="font-mono-label text-mono-label text-zinc-400 hover:text-zinc-100 transition-all" href="#about">PROFILE</a>
+<a class="font-mono-label text-mono-label text-zinc-400 hover:text-zinc-100 transition-all" href="#contact">CONTACT</a>
+</nav>
+<button class="bg-primary-container text-on-primary-container px-4 py-2 font-mono-label text-mono-label rounded-lg hover:shadow-[0_0_20px_rgba(16,185,129,0.15)] active:scale-95 duration-200 transition-all">
+        RESUME
+    </button>
+</header>
+<main class="pt-16">
+<!-- Hero Section -->
+<section class="relative min-h-[90vh] flex flex-col items-center justify-center text-center px-6 overflow-hidden grid-pattern">
+<div class="absolute inset-0 bg-gradient-to-b from-transparent via-background to-background"></div>
+<div class="relative z-10 max-w-4xl">
+<div class="inline-flex items-center gap-2 px-3 py-1 mb-8 rounded-full border border-outline-variant bg-surface-container-low">
+<span class="w-2 h-2 rounded-full bg-primary animate-pulse"></span>
+<span class="font-mono-label text-xs uppercase tracking-widest text-on-surface-variant">Available for new opportunities</span>
+</div>
+<h1 id="hero-headline" class="font-headline-xl text-headline-xl md:text-7xl mb-6 text-white leading-tight">
+                Full-Stack Software <br/>
+<span class="text-primary italic">Developer</span>
+</h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant mb-12 max-w-2xl mx-auto">
+                Architecting scalable digital ecosystems from front-end precision to robust back-end systems. Building the future of the web, one commit at a time.
+            </p>
+<div class="flex flex-col sm:flex-row items-center justify-center gap-4 mb-16">
+<button class="w-full sm:w-auto px-8 py-4 bg-primary text-on-primary font-headline-md text-sm rounded-lg hover:shadow-[0_0_30px_rgba(78,222,163,0.3)] transition-all">
+                    View Projects
+                </button>
+<button class="w-full sm:w-auto px-8 py-4 border border-outline-variant text-white font-headline-md text-sm rounded-lg hover:bg-surface-container-high transition-all">
+                    Download CV
+                </button>
+</div>
+<div class="flex flex-wrap justify-center gap-3 opacity-70">
+<span class="px-3 py-1 bg-surface-container border border-outline-variant text-xs font-mono-label rounded text-zinc-400">React</span>
+<span class="px-3 py-1 bg-surface-container border border-outline-variant text-xs font-mono-label rounded text-zinc-400">Node.js</span>
+<span class="px-3 py-1 bg-surface-container border border-outline-variant text-xs font-mono-label rounded text-zinc-400">PostgreSQL</span>
+<span class="px-3 py-1 bg-surface-container border border-outline-variant text-xs font-mono-label rounded text-zinc-400">TypeScript</span>
+<span class="px-3 py-1 bg-surface-container border border-outline-variant text-xs font-mono-label rounded text-zinc-400">Docker</span>
+<span class="px-3 py-1 bg-surface-container border border-outline-variant text-xs font-mono-label rounded text-zinc-400">AWS</span>
+</div>
+</div>
+</section>
+<!-- About Section -->
+<section class="py-24 px-8 max-w-7xl mx-auto" id="about">
+<div class="grid md:grid-cols-2 gap-16 items-center">
+<div class="relative group reveal-left">
+<div class="absolute -inset-4 bg-primary/10 rounded-xl blur-2xl group-hover:bg-primary/20 transition-all duration-500"></div>
+<div class="relative rounded-xl overflow-hidden border border-outline-variant aspect-[320/411] bg-surface-container-high">
+<img class="w-full h-full object-cover" alt="Mirjana Cale — Full-Stack Software Developer" src="mirjana.jpg"/>
+</div>
+</div>
+<div class="reveal-right">
+<h2 class="font-headline-xl text-headline-xl text-white mb-8">Hi, I'm Mirjana.</h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant mb-6 leading-relaxed">
+                    I’m a full-stack software developer who enjoys building complete web applications from frontend interfaces to backend systems. I work with modern tools to create scalable, user-focused solutions with clean design, strong functionality, and reliable performance.
+                </p>
+<p class="font-body-md text-body-md text-on-surface-variant/80 mb-8">
+                    Based at the intersection of design and logic, I specialize in crafting performant applications that solve complex problems without sacrificing user experience.
+                </p>
+<div class="grid grid-cols-2 gap-4 border-t border-outline-variant pt-8">
+<div>
+<span class="block font-headline-md text-primary mb-1">5+</span>
+<span class="font-mono-label text-xs uppercase text-zinc-500">Years Experience</span>
+</div>
+<div>
+<span class="block font-headline-md text-primary mb-1">40+</span>
+<span class="font-mono-label text-xs uppercase text-zinc-500">Projects Shipped</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Skills Section - Premium AI Showcase -->
+<section class="py-24 px-8 bg-surface-container-lowest relative overflow-hidden" id="skills">
+<div class="absolute inset-0 grid-pattern opacity-10"></div>
+<div class="max-w-7xl mx-auto relative z-10">
+<div class="mb-16 reveal">
+<span class="font-mono-label text-primary text-xs uppercase tracking-[0.2em]">Technical Arsenal</span>
+<h2 class="font-headline-xl text-headline-xl text-white mt-2 mb-4">Technologies, AI Systems &amp; Creative Development</h2>
+<p class="text-on-surface-variant font-body-lg max-w-2xl">Building intelligent, scalable, and visually immersive digital experiences.</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+<!-- AI & Creative Technology -->
+<div class="p-8 rounded-xl border border-outline-variant bg-zinc-950/40 backdrop-blur-sm hover:border-primary/40 transition-all group stagger-item">
+<div class="w-12 h-12 rounded-lg bg-emerald-500/10 flex items-center justify-center mb-6 border border-emerald-500/20 group-hover:border-emerald-500/50 group-hover:bg-emerald-500/20 transition-all">
+<span class="material-symbols-outlined text-primary text-2xl" data-icon="neurology">neurology</span>
+</div>
+<h3 class="font-headline-md text-white mb-4">AI &amp; Creative Tech</h3>
+<div class="flex flex-wrap gap-2">
+<span class="px-3 py-1 bg-surface-container-high border border-outline-variant text-[11px] font-mono-label rounded text-on-surface-variant glow-tag transition-all">OpenAI API</span>
+<span class="px-3 py-1 bg-surface-container-high border border-outline-variant text-[11px] font-mono-label rounded text-on-surface-variant glow-tag transition-all">Prompt Engineering</span>
+<span class="px-3 py-1 bg-surface-container-high border border-outline-variant text-[11px] font-mono-label rounded text-on-surface-variant glow-tag transition-all">AI Assisted Dev</span>
+<span class="px-3 py-1 bg-surface-container-high border border-outline-variant text-[11px] font-mono-label rounded text-on-surface-variant glow-tag transition-all">Speech AI</span>
+<span class="px-3 py-1 bg-surface-container-high border border-outline-variant text-[11px] font-mono-label rounded text-on-surface-variant glow-tag transition-all">Image Gen APIs</span>
+<span class="px-3 py-1 bg-surface-container-high border border-outline-variant text-[11px] font-mono-label rounded text-on-surface-variant glow-tag transition-all">AI UX Design</span>
+<span class="px-3 py-1 bg-surface-container-high border border-outline-variant text-[11px] font-mono-label rounded text-on-surface-variant glow-tag transition-all">Creative AI Workflows</span>
+</div>
+</div>
+<!-- Frontend Development -->
+<div class="p-8 rounded-xl border border-outline-variant bg-zinc-950/40 backdrop-blur-sm hover:border-primary/40 transition-all group stagger-item">
+<div class="w-12 h-12 rounded-lg bg-emerald-500/10 flex items-center justify-center mb-6 border border-emerald-500/20 group-hover:border-emerald-500/50 group-hover:bg-emerald-500/20 transition-all">
+<span class="material-symbols-outlined text-primary text-2xl" data-icon="web">web</span>
+</div>
+<h3 class="font-headline-md text-white mb-4">Frontend Engineering</h3>
+<div class="flex flex-wrap gap-2">
+<span class="px-3 py-1 bg-surface-container-high border border-outline-variant text-[11px] font-mono-label rounded text-on-surface-variant glow-tag transition-all">React.js</span>
+<span class="px-3 py-1 bg-surface-container-high border border-outline-variant text-[11px] font-mono-label rounded text-on-surface-variant glow-tag transition-all">Next.js</span>
+<span class="px-3 py-1 bg-surface-container-high border border-outline-variant text-[11px] font-mono-label rounded text-on-surface-variant glow-tag transition-all">TypeScript</span>
+<span class="px-3 py-1 bg-surface-container-high border border-outline-variant text-[11px] font-mono-label rounded text-on-surface-variant glow-tag transition-all">Tailwind CSS</span>
+<span class="px-3 py-1 bg-surface-container-high border border-outline-variant text-[11px] font-mono-label rounded text-on-surface-variant glow-tag transition-all">Redux</span>
+<span class="px-3 py-1 bg-surface-container-high border border-outline-variant text-[11px] font-mono-label rounded text-on-surface-variant glow-tag transition-all">Framer Motion</span>
+<span class="px-3 py-1 bg-surface-container-high border border-outline-variant text-[11px] font-mono-label rounded text-on-surface-variant glow-tag transition-all">UI/UX Design</span>
+<span class="px-3 py-1 bg-surface-container-high border border-outline-variant text-[11px] font-mono-label rounded text-on-surface-variant glow-tag transition-all">Responsive Design</span>
+</div>
+</div>
+<!-- Backend Development -->
+<div class="p-8 rounded-xl border border-outline-variant bg-zinc-950/40 backdrop-blur-sm hover:border-primary/40 transition-all group stagger-item">
+<div class="w-12 h-12 rounded-lg bg-emerald-500/10 flex items-center justify-center mb-6 border border-emerald-500/20 group-hover:border-emerald-500/50 group-hover:bg-emerald-500/20 transition-all">
+<span class="material-symbols-outlined text-primary text-2xl" data-icon="dns">dns</span>
+</div>
+<h3 class="font-headline-md text-white mb-4">Backend &amp; APIs</h3>
+<div class="flex flex-wrap gap-2">
+<span class="px-3 py-1 bg-surface-container-high border border-outline-variant text-[11px] font-mono-label rounded text-on-surface-variant glow-tag transition-all">Python</span>
+<span class="px-3 py-1 bg-surface-container-high border border-outline-variant text-[11px] font-mono-label rounded text-on-surface-variant glow-tag transition-all">Django</span>
+<span class="px-3 py-1 bg-surface-container-high border border-outline-variant text-[11px] font-mono-label rounded text-on-surface-variant glow-tag transition-all">Node.js</span>
+<span class="px-3 py-1 bg-surface-container-high border border-outline-variant text-[11px] font-mono-label rounded text-on-surface-variant glow-tag transition-all">FastAPI</span>
+<span class="px-3 py-1 bg-surface-container-high border border-outline-variant text-[11px] font-mono-label rounded text-on-surface-variant glow-tag transition-all">Express.js</span>
+<span class="px-3 py-1 bg-surface-container-high border border-outline-variant text-[11px] font-mono-label rounded text-on-surface-variant glow-tag transition-all">REST APIs</span>
+<span class="px-3 py-1 bg-surface-container-high border border-outline-variant text-[11px] font-mono-label rounded text-on-surface-variant glow-tag transition-all">Stripe Payments</span>
+<span class="px-3 py-1 bg-surface-container-high border border-outline-variant text-[11px] font-mono-label rounded text-on-surface-variant glow-tag transition-all">GraphQL</span>
+</div>
+</div>
+<!-- Databases & Cloud -->
+<div class="p-8 rounded-xl border border-outline-variant bg-zinc-950/40 backdrop-blur-sm hover:border-primary/40 transition-all group stagger-item">
+<div class="w-12 h-12 rounded-lg bg-emerald-500/10 flex items-center justify-center mb-6 border border-emerald-500/20 group-hover:border-emerald-500/50 group-hover:bg-emerald-500/20 transition-all">
+<span class="material-symbols-outlined text-primary text-2xl" data-icon="database">database</span>
+</div>
+<h3 class="font-headline-md text-white mb-4">Data &amp; Cloud</h3>
+<div class="flex flex-wrap gap-2">
+<span class="px-3 py-1 bg-surface-container-high border border-outline-variant text-[11px] font-mono-label rounded text-on-surface-variant glow-tag transition-all">PostgreSQL</span>
+<span class="px-3 py-1 bg-surface-container-high border border-outline-variant text-[11px] font-mono-label rounded text-on-surface-variant glow-tag transition-all">Supabase</span>
+<span class="px-3 py-1 bg-surface-container-high border border-outline-variant text-[11px] font-mono-label rounded text-on-surface-variant glow-tag transition-all">Firebase</span>
+<span class="px-3 py-1 bg-surface-container-high border border-outline-variant text-[11px] font-mono-label rounded text-on-surface-variant glow-tag transition-all">MongoDB</span>
+<span class="px-3 py-1 bg-surface-container-high border border-outline-variant text-[11px] font-mono-label rounded text-on-surface-variant glow-tag transition-all">Redis</span>
+<span class="px-3 py-1 bg-surface-container-high border border-outline-variant text-[11px] font-mono-label rounded text-on-surface-variant glow-tag transition-all">Prisma ORM</span>
+<span class="px-3 py-1 bg-surface-container-high border border-outline-variant text-[11px] font-mono-label rounded text-on-surface-variant glow-tag transition-all">Firestore</span>
+</div>
+</div>
+<!-- Design & Product -->
+<div class="p-8 rounded-xl border border-outline-variant bg-zinc-950/40 backdrop-blur-sm hover:border-primary/40 transition-all group stagger-item">
+<div class="w-12 h-12 rounded-lg bg-emerald-500/10 flex items-center justify-center mb-6 border border-emerald-500/20 group-hover:border-emerald-500/50 group-hover:bg-emerald-500/20 transition-all">
+<span class="material-symbols-outlined text-primary text-2xl" data-icon="brush">brush</span>
+</div>
+<h3 class="font-headline-md text-white mb-4">Design &amp; Product</h3>
+<div class="flex flex-wrap gap-2">
+<span class="px-3 py-1 bg-surface-container-high border border-outline-variant text-[11px] font-mono-label rounded text-on-surface-variant glow-tag transition-all">Figma</span>
+<span class="px-3 py-1 bg-surface-container-high border border-outline-variant text-[11px] font-mono-label rounded text-on-surface-variant glow-tag transition-all">Wireframing</span>
+<span class="px-3 py-1 bg-surface-container-high border border-outline-variant text-[11px] font-mono-label rounded text-on-surface-variant glow-tag transition-all">Prototyping</span>
+<span class="px-3 py-1 bg-surface-container-high border border-outline-variant text-[11px] font-mono-label rounded text-on-surface-variant glow-tag transition-all">User Flows</span>
+<span class="px-3 py-1 bg-surface-container-high border border-outline-variant text-[11px] font-mono-label rounded text-on-surface-variant glow-tag transition-all">Accessibility</span>
+<span class="px-3 py-1 bg-surface-container-high border border-outline-variant text-[11px] font-mono-label rounded text-on-surface-variant glow-tag transition-all">Mobile First</span>
+</div>
+</div>
+<!-- Tools & Deployment -->
+<div class="p-8 rounded-xl border border-outline-variant bg-zinc-950/40 backdrop-blur-sm hover:border-primary/40 transition-all group stagger-item">
+<div class="w-12 h-12 rounded-lg bg-emerald-500/10 flex items-center justify-center mb-6 border border-emerald-500/20 group-hover:border-emerald-500/50 group-hover:bg-emerald-500/20 transition-all">
+<span class="material-symbols-outlined text-primary text-2xl" data-icon="rocket_launch">rocket_launch</span>
+</div>
+<h3 class="font-headline-md text-white mb-4">Tools &amp; Scale</h3>
+<div class="flex flex-wrap gap-2">
+<span class="px-3 py-1 bg-surface-container-high border border-outline-variant text-[11px] font-mono-label rounded text-on-surface-variant glow-tag transition-all">Git / GitHub</span>
+<span class="px-3 py-1 bg-surface-container-high border border-outline-variant text-[11px] font-mono-label rounded text-on-surface-variant glow-tag transition-all">Vercel</span>
+<span class="px-3 py-1 bg-surface-container-high border border-outline-variant text-[11px] font-mono-label rounded text-on-surface-variant glow-tag transition-all">Heroku</span>
+<span class="px-3 py-1 bg-surface-container-high border border-outline-variant text-[11px] font-mono-label rounded text-on-surface-variant glow-tag transition-all">Netlify</span>
+<span class="px-3 py-1 bg-surface-container-high border border-outline-variant text-[11px] font-mono-label rounded text-on-surface-variant glow-tag transition-all">VS Code</span>
+<span class="px-3 py-1 bg-surface-container-high border border-outline-variant text-[11px] font-mono-label rounded text-on-surface-variant glow-tag transition-all">Agile</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Featured Projects -->
+<section class="py-24 px-8 max-w-7xl mx-auto" id="projects">
+<div class="flex flex-col md:flex-row md:items-end justify-between gap-8 mb-16">
+<div class="reveal">
+<span class="font-mono-label text-primary text-xs uppercase tracking-[0.2em]">Portfolio</span>
+<h2 class="font-headline-xl text-headline-xl text-white mt-2">Selected Works</h2>
+</div>
+<p class="text-on-surface-variant max-w-xs font-body-md reveal">
+                A collection of production-grade systems and technical experiments.
+            </p>
+</div>
+<div class="grid md:grid-cols-2 gap-8">
+<!-- Project 1: Mollavie -->
+<div class="group rounded-xl border border-outline-variant bg-surface-container-low overflow-hidden hover:shadow-[0_0_30px_rgba(16,185,129,0.1)] transition-all duration-300 stagger-item">
+<div class="h-48 bg-surface-container-high overflow-hidden relative">
+<div class="absolute inset-0 bg-gradient-to-tr from-emerald-500/20 to-transparent"></div>
+<div class="absolute inset-0 flex items-center justify-center p-8 opacity-40 group-hover:scale-110 transition-transform duration-700">
+<span class="material-symbols-outlined text-8xl" data-icon="shopping_bag">shopping_bag</span>
+</div>
+</div>
+<div class="p-6">
+<div class="flex gap-2 mb-4">
+<span class="text-[10px] font-mono-label px-2 py-0.5 rounded border border-primary/30 text-primary uppercase">React</span>
+<span class="text-[10px] font-mono-label px-2 py-0.5 rounded border border-outline-variant text-zinc-400 uppercase">Node.js</span>
+<span class="text-[10px] font-mono-label px-2 py-0.5 rounded border border-outline-variant text-zinc-400 uppercase">eCommerce</span>
+</div>
+<h3 class="font-headline-md text-white mb-2">Mollavie</h3>
+<p class="text-on-surface-variant text-sm mb-6 line-clamp-2">A full-featured e-commerce platform with product management, cart functionality, and seamless checkout experience built with a modern full-stack.</p>
+<div class="flex items-center justify-between mt-auto">
+<a class="text-xs font-mono-label text-primary flex items-center gap-1 hover:underline" href="https://github.com/mirjanacale/Mollavie" target="_blank" rel="noopener">
+                            VIEW CODE <span class="material-symbols-outlined text-sm" data-icon="open_in_new">open_in_new</span>
+</a>
+<a class="text-zinc-500 hover:text-white transition-colors" href="https://github.com/mirjanacale/Mollavie" target="_blank" rel="noopener">
+<span class="material-symbols-outlined" data-icon="code">code</span>
+</a>
+</div>
+</div>
+</div>
+<!-- Project 2: Molly Dragon Palette Art -->
+<div class="group rounded-xl border border-outline-variant bg-surface-container-low overflow-hidden hover:shadow-[0_0_30px_rgba(16,185,129,0.1)] transition-all duration-300 stagger-item">
+<div class="h-48 bg-surface-container-high overflow-hidden relative">
+<div class="absolute inset-0 bg-gradient-to-tr from-emerald-500/20 to-transparent"></div>
+<div class="absolute inset-0 flex items-center justify-center p-8 opacity-40 group-hover:scale-110 transition-transform duration-700">
+<span class="material-symbols-outlined text-8xl" data-icon="palette">palette</span>
+</div>
+</div>
+<div class="p-6">
+<div class="flex gap-2 mb-4">
+<span class="text-[10px] font-mono-label px-2 py-0.5 rounded border border-primary/30 text-primary uppercase">Android</span>
+<span class="text-[10px] font-mono-label px-2 py-0.5 rounded border border-outline-variant text-zinc-400 uppercase">Mobile</span>
+<span class="text-[10px] font-mono-label px-2 py-0.5 rounded border border-outline-variant text-zinc-400 uppercase">Google Play</span>
+</div>
+<h3 class="font-headline-md text-white mb-2">Molly Dragon Palette Art</h3>
+<p class="text-on-surface-variant text-sm mb-6 line-clamp-2">Creative mobile art application live on Google Play, featuring an interactive dragon-themed palette system for digital artists.</p>
+<div class="flex items-center justify-between mt-auto">
+<a class="text-xs font-mono-label text-primary flex items-center gap-1 hover:underline" href="https://github.com/mirjanacale/molly-dragon-palette-art" target="_blank" rel="noopener">
+                            GOOGLE PLAY <span class="material-symbols-outlined text-sm" data-icon="open_in_new">open_in_new</span>
+</a>
+<a class="text-zinc-500 hover:text-white transition-colors" href="https://github.com/mirjanacale/molly-dragon-palette-art" target="_blank" rel="noopener">
+<span class="material-symbols-outlined" data-icon="code">code</span>
+</a>
+</div>
+</div>
+</div>
+<!-- Project 3: Molly Finish Art -->
+<div class="group rounded-xl border border-outline-variant bg-surface-container-low overflow-hidden hover:shadow-[0_0_30px_rgba(16,185,129,0.1)] transition-all duration-300 stagger-item">
+<div class="h-48 bg-surface-container-high overflow-hidden relative">
+<div class="absolute inset-0 bg-gradient-to-tr from-emerald-500/20 to-transparent"></div>
+<div class="absolute inset-0 flex items-center justify-center p-8 opacity-40 group-hover:scale-110 transition-transform duration-700">
+<span class="material-symbols-outlined text-8xl" data-icon="brush">brush</span>
+</div>
+</div>
+<div class="p-6">
+<div class="flex gap-2 mb-4">
+<span class="text-[10px] font-mono-label px-2 py-0.5 rounded border border-primary/30 text-primary uppercase">React</span>
+<span class="text-[10px] font-mono-label px-2 py-0.5 rounded border border-outline-variant text-zinc-400 uppercase">Creative</span>
+<span class="text-[10px] font-mono-label px-2 py-0.5 rounded border border-outline-variant text-zinc-400 uppercase">Art App</span>
+</div>
+<h3 class="font-headline-md text-white mb-2">Molly Finish Art</h3>
+<p class="text-on-surface-variant text-sm mb-6 line-clamp-2">An interactive art application enabling users to create and finish digital artwork with intuitive tools and a clean, creative interface.</p>
+<div class="flex items-center justify-between mt-auto">
+<a class="text-xs font-mono-label text-primary flex items-center gap-1 hover:underline" href="https://github.com/mirjanacale/molly-finish-art" target="_blank" rel="noopener">
+                            VIEW CODE <span class="material-symbols-outlined text-sm" data-icon="open_in_new">open_in_new</span>
+</a>
+<a class="text-zinc-500 hover:text-white transition-colors" href="https://github.com/mirjanacale/molly-finish-art" target="_blank" rel="noopener">
+<span class="material-symbols-outlined" data-icon="code">code</span>
+</a>
+</div>
+</div>
+</div>
+<!-- Project 4: Flat Roof Solutions -->
+<div class="group rounded-xl border border-outline-variant bg-surface-container-low overflow-hidden hover:shadow-[0_0_30px_rgba(16,185,129,0.1)] transition-all duration-300 stagger-item">
+<div class="h-48 bg-surface-container-high overflow-hidden relative">
+<div class="absolute inset-0 bg-gradient-to-tr from-emerald-500/20 to-transparent"></div>
+<div class="absolute inset-0 flex items-center justify-center p-8 opacity-40 group-hover:scale-110 transition-transform duration-700">
+<span class="material-symbols-outlined text-8xl" data-icon="roofing">roofing</span>
+</div>
+</div>
+<div class="p-6">
+<div class="flex gap-2 mb-4">
+<span class="text-[10px] font-mono-label px-2 py-0.5 rounded border border-primary/30 text-primary uppercase">Next.js</span>
+<span class="text-[10px] font-mono-label px-2 py-0.5 rounded border border-outline-variant text-zinc-400 uppercase">React</span>
+<span class="text-[10px] font-mono-label px-2 py-0.5 rounded border border-outline-variant text-zinc-400 uppercase">Closed Testing</span>
+</div>
+<h3 class="font-headline-md text-white mb-2">Flat Roof Solutions</h3>
+<p class="text-on-surface-variant text-sm mb-6 line-clamp-2">A specialized web application for roofing professionals currently in closed testing — built to streamline flat roof assessments and project management.</p>
+<div class="flex items-center justify-between mt-auto">
+<a class="text-xs font-mono-label text-primary flex items-center gap-1 hover:underline" href="https://github.com/mirjanacale/flat-roof-solutions" target="_blank" rel="noopener">
+                            VIEW CODE <span class="material-symbols-outlined text-sm" data-icon="open_in_new">open_in_new</span>
+</a>
+<a class="text-zinc-500 hover:text-white transition-colors" href="https://github.com/mirjanacale/flat-roof-solutions" target="_blank" rel="noopener">
+<span class="material-symbols-outlined" data-icon="code">code</span>
+</a>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Case Study Detail Section -->
+<section class="py-24 px-8 bg-zinc-950/50 border-y border-outline-variant">
+<div class="max-w-7xl mx-auto">
+<div class="grid md:grid-cols-12 gap-12">
+<div class="md:col-span-5 reveal-left">
+<span class="font-mono-label text-emerald-500 text-xs uppercase mb-4 block">Project Deep Dive</span>
+<h2 class="font-headline-xl text-headline-xl text-white mb-6">Mollavie — E-Commerce Platform</h2>
+<p class="text-on-surface-variant mb-8">A full-stack e-commerce build showcasing end-to-end product ownership — from database design to polished UI and payment integration.</p>
+<div class="space-y-6">
+<div class="p-4 rounded border border-outline-variant bg-surface-container-high">
+<h4 class="font-mono-label text-xs uppercase text-primary mb-2">The Challenge</h4>
+<p class="text-sm text-zinc-300 italic">"Build a complete, production-ready storefront with real cart logic, product management, and a smooth checkout flow."</p>
+</div>
+<div class="p-4 rounded border border-outline-variant bg-surface-container-high">
+<h4 class="font-mono-label text-xs uppercase text-primary mb-2">The Outcome</h4>
+<p class="text-sm text-zinc-300">A modern React + Node.js platform with a clean component architecture, REST API backend, and responsive design from mobile to desktop.</p>
+</div>
+</div>
+</div>
+<div class="md:col-span-7 bg-surface-container rounded-xl border border-outline-variant p-1 overflow-hidden reveal-right">
+<div class="bg-zinc-900 rounded-lg p-6 font-mono text-xs text-emerald-400 overflow-x-auto min-h-[400px]">
+<div class="flex items-center gap-2 mb-6 border-b border-zinc-800 pb-4">
+<span class="w-3 h-3 rounded-full bg-red-500/50"></span>
+<span class="w-3 h-3 rounded-full bg-amber-500/50"></span>
+<span class="w-3 h-3 rounded-full bg-emerald-500/50"></span>
+<span class="ml-4 text-zinc-500 font-mono-label">architecture_flow.sys</span>
+</div>
+<pre class="whitespace-pre-wrap">// MOLLAVIE: SYSTEM_OVERVIEW
+// -------------------------
+
+1. [FRONTEND]   -&gt; REACT_SPA + TAILWIND_CSS
+2. [ROUTING]    -&gt; CLIENT_SIDE_NAVIGATION
+3. [BACKEND]    -&gt; NODE.JS + EXPRESS_REST_API
+4. [STORAGE]    -&gt; PRODUCT_DB + CART_STATE
+5. [PAYMENTS]   -&gt; CHECKOUT_FLOW
+6. [DEPLOY]     -&gt; GITHUB + VERCEL
+
+[STATUS]: LIVE
+[REPO]: github.com/mirjanacale/Mollavie
+[STACK]: React · Node.js · REST API
+                            </pre>
+<div class="mt-8 flex justify-center">
+<div class="w-full h-32 relative">
+<div class="absolute inset-0 bg-primary/5 border border-primary/20 flex items-center justify-center rounded">
+<span class="material-symbols-outlined text-4xl animate-pulse" data-icon="hub">hub</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Contact Section -->
+<section class="py-32 px-8 max-w-4xl mx-auto text-center" id="contact">
+<h2 class="font-headline-xl text-headline-xl text-white mb-6 italic reveal">Ready to build?</h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant mb-12 reveal">
+            I am currently open to new opportunities and technical collaborations. Whether you have a specific project in mind or just want to talk architecture, my inbox is open.
+        </p>
+<div class="flex flex-col items-center gap-8">
+<a class="group relative px-12 py-5 bg-primary text-on-primary font-headline-md rounded-lg overflow-hidden transition-all hover:shadow-[0_0_40px_rgba(16,185,129,0.4)]" href="mailto:mirjana083@gmail.com">
+<span class="relative z-10 flex items-center gap-3">
+<span class="material-symbols-outlined" data-icon="mail">mail</span>
+                    SAY HELLO
+                </span>
+<div class="absolute inset-0 bg-white/10 translate-y-full group-hover:translate-y-0 transition-transform duration-300"></div>
+</a>
+<div class="flex items-center gap-12 mt-8">
+<a class="group flex flex-col items-center gap-2 opacity-60 hover:opacity-100 transition-opacity" href="https://github.com/mirjanacale" target="_blank" rel="noopener">
+<span class="material-symbols-outlined text-3xl" data-icon="terminal">terminal</span>
+<span class="font-mono-label text-[10px] uppercase tracking-widest">GitHub</span>
+</a>
+<a class="group flex flex-col items-center gap-2 opacity-60 hover:opacity-100 transition-opacity" href="https://www.linkedin.com/in/mirjana-cale" target="_blank" rel="noopener">
+<span class="material-symbols-outlined text-3xl" data-icon="link">link</span>
+<span class="font-mono-label text-[10px] uppercase tracking-widest">LinkedIn</span>
+</a>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="bg-zinc-950 border-t border-zinc-800 py-12">
+<div class="flex flex-col md:flex-row justify-between items-center px-12 max-w-7xl mx-auto gap-4">
+<div class="flex items-center gap-4">
+<span class="text-sm font-bold text-zinc-500 font-mono-label tracking-widest">MIRJANA_CALE</span>
+<span class="h-4 w-[1px] bg-zinc-800"></span>
+<span class="font-mono-label text-xs text-zinc-500 opacity-80">© 2025 MIRJANA_CALE. BUILT_WITH_PRECISION</span>
+</div>
+<div class="flex items-center gap-6">
+<a class="material-symbols-outlined text-zinc-500 hover:text-emerald-400 transition-colors opacity-80 hover:opacity-100" data-icon="code" href="#">code</a>
+<a class="material-symbols-outlined text-zinc-500 hover:text-emerald-400 transition-colors opacity-80 hover:opacity-100" data-icon="share" href="#">share</a>
+<a class="material-symbols-outlined text-zinc-500 hover:text-emerald-400 transition-colors opacity-80 hover:opacity-100" data-icon="terminal" href="#">terminal</a>
+</div>
+</div>
+</footer>
+
+<script>
+(function () {
+    'use strict';
+
+    /* ── Bail out entirely for prefers-reduced-motion ───────────────
+       CSS already makes .reveal* / .stagger-item visible via the
+       @media (prefers-reduced-motion) block, so nothing else needed. */
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
+    /* ════════════════════════════════════════════════════════════════
+       1. TYPEWRITER — hero H1
+       Clears the H1, hides it instantly, then types each character
+       back so there is no flash of the original content.
+    ════════════════════════════════════════════════════════════════ */
+    var h1 = document.getElementById('hero-headline');
+    if (h1) {
+        var LINE1 = 'Full-Stack Software ';
+        var LINE2 = 'Developer';
+
+        /* Hide before clearing so there's no content flash */
+        h1.style.visibility = 'hidden';
+
+        setTimeout(function () {
+            h1.innerHTML = '';
+            h1.style.visibility = 'visible';
+            h1.classList.add('typing');
+
+            var i = 0;
+            function typeLine1() {
+                if (i < LINE1.length) {
+                    h1.appendChild(document.createTextNode(LINE1[i++]));
+                    setTimeout(typeLine1, 52);
+                } else {
+                    /* Line break then start the emerald "Developer" span */
+                    h1.appendChild(document.createElement('br'));
+                    var span = document.createElement('span');
+                    span.className = 'text-primary italic';
+                    h1.appendChild(span);
+                    var j = 0;
+                    function typeLine2() {
+                        if (j < LINE2.length) {
+                            span.textContent += LINE2[j++];
+                            setTimeout(typeLine2, 80);
+                        } else {
+                            /* Typing done — remove blinking cursor */
+                            h1.classList.remove('typing');
+                        }
+                    }
+                    setTimeout(typeLine2, 140);
+                }
+            }
+            typeLine1();
+        }, 280); /* small pause before first keystroke */
+    }
+
+    /* ════════════════════════════════════════════════════════════════
+       2. REVEAL ON SCROLL — fade + slide (.reveal / .reveal-left / .reveal-right)
+       Plays once; element is unobserved after it becomes visible.
+    ════════════════════════════════════════════════════════════════ */
+    var revealIO = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('visible');
+                revealIO.unobserve(entry.target);
+            }
+        });
+    }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+
+    document.querySelectorAll('.reveal, .reveal-left, .reveal-right')
+        .forEach(function (el) { revealIO.observe(el); });
+
+    /* ════════════════════════════════════════════════════════════════
+       3. STAGGERED CARDS — each card delays 110 ms after the previous.
+       We observe the *parent grid*, not individual cards, so the
+       whole group fires at once and we stagger manually with setTimeout.
+    ════════════════════════════════════════════════════════════════ */
+    /* Group cards by their immediate parent */
+    var parentMap = new Map();
+    document.querySelectorAll('.stagger-item').forEach(function (card) {
+        var p = card.parentElement;
+        if (!parentMap.has(p)) parentMap.set(p, []);
+        parentMap.get(p).push(card);
+    });
+
+    var staggerIO = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
+            if (!entry.isIntersecting) return;
+            var cards = parentMap.get(entry.target);
+            if (cards) {
+                cards.forEach(function (card, idx) {
+                    setTimeout(function () {
+                        card.classList.add('visible');
+                    }, idx * 110);
+                });
+            }
+            staggerIO.unobserve(entry.target);
+        });
+    }, { threshold: 0.05, rootMargin: '0px 0px -30px 0px' });
+
+    parentMap.forEach(function (_cards, parent) {
+        staggerIO.observe(parent);
+    });
+
+})();
+</script>
+</body></html>
